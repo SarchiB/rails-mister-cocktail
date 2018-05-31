@@ -1,0 +1,20 @@
+<div class="page">
+  <div class="container">
+    <!-- Heading -->
+    <h1 class=>Delicious cocktails</h1>
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Card -->
+      <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card">
+          <div class="card-description">
+            <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <!-- Add button -->
+      <!-- Close main div -->
+    </div>
+  </div>
