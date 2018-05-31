@@ -1,14 +1,32 @@
-<h1>Cocktails <%= @cocktail.name %></h1>
-<% @cocktail.doses.each do |dose| %>
-<table>
- <td>
-   <%= dose.ingredient.name %>
- </td>
-  <td><%= dose.description %> <%= link_to "Delete", cocktail_dose_path(@cocktail, dose),
-     method: :delete,
-     data: { confirm: "Are you sure?" } %>
-</td>
-<% end %>
-</table>
-<%= link_to "Add doses", new_cocktail_dose_path(@cocktail) %>
-<%= link_to "Home", cocktails_path %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @cocktail.image, height: 300, width: 400, crop: :fill %>')">
+  <h1> <%= @cocktail.name %></h1>
+</div>
+
+
+<div class="container">
+  <div class="text-center">
+    <div class="row">
+      <h2>Recipe</h2>
+      <% @cocktail.doses.each do |dose| %>
+      <ul class="list-unstyled">
+        <li>
+         <%= dose.ingredient.name %>
+         <%= dose.description %>
+         <%= link_to cocktail_dose_path(@cocktail, dose),
+         method: :delete,
+         data: { confirm: "Are you sure?" } do %>
+         <%=  icon('fas', 'times', class: 'black-x') %>
+         <% end %>
+       </li>
+       <% end %>
+     </ul>
+
+     <%= link_to "Add doses", new_cocktail_dose_path(@cocktail), class: 'btn btn-show'%>
+     <%= link_to "Home", cocktails_path, class: 'btn btn-show' %>
+
+
+   </div>
+ </div>
+</div>
+
+

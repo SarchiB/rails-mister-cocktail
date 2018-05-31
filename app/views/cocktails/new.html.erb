@@ -1,16 +1,23 @@
+<div class="container">
+  <div class="row text-left">
+<!--     <div class="col-sm-offset-4 col-sm-4"> -->
+      <h1>New Cock-tail</h1>
+      <%= simple_form_for(@cocktail) do |f| %>
+      <div class="form-group">
+        <%= f.input :name %>
+        <%= f.input :image %>
+        <%= f.input :image_cache, as: :hidden %>
+      </div>
 
-<h1>New cocktail</h1>
-<%= form_for(@cocktail) do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+      <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+
+
+      <%= link_to cocktails_path do %>
+      <i class="fa fa-history">Back to Home</i>
+      <% end %>
+<!--     </div> -->
   </div>
-
-  <%= f.submit class: 'btn btn-primary' %>
-<% end %>
-
-
-<%= link_to cocktails_path do %>
-  <i class="fa fa-history">Back to Home</i>
-<% end %>
+</div>
+</div>
 

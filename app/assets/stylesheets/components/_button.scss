@@ -1,0 +1,9 @@
+.btn-show {
+  color: black;
+  font-size: 15px;
+  border: 1px dotted black;
+  &:hover{
+    color: white;
+    background-color: black;
+  }
+}
